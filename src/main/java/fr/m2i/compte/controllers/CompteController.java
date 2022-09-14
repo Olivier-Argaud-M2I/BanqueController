@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/comptes")
 public class CompteController {
@@ -28,10 +30,17 @@ public class CompteController {
     }
 
 
+    @GetMapping(
+            path = "/all",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<Compte> getAll(){
+        return compteService.getAll();
+    }
 
 
     @PostMapping(
-            path = "/new",
+            path = "/save",
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
     public Compte newCompte(@RequestBody Compte compte){
@@ -39,7 +48,14 @@ public class CompteController {
         return compteService.newCompte(compte);
     }
 
+    @DeleteMapping(
+            path = "/delete",
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )
+    public void deletenewCompte(@RequestBody Compte compte){
 
+        compteService.delete(compte);
+    }
 
 
 }

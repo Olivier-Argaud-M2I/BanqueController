@@ -21,7 +21,8 @@ CREATE TABLE `transaction`(
     `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
     `title` TEXT NOT NULL ,
     `montant` BIGINT NOT NULL ,
-    `compte_id` BIGINT NOT NULL
+    `compte_id` BIGINT NOT NULL ,
+    `reccuring` TINYINT NOT NULL 
 
 );
 

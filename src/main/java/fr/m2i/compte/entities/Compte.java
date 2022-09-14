@@ -25,7 +25,7 @@ public class Compte {
 
     private Long solde;
 
-    @OneToMany(mappedBy = "compte")
+    @OneToMany(mappedBy = "compte",fetch = FetchType.LAZY)
     private Set<Transaction> transactions;
 
 }

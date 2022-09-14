@@ -24,7 +24,9 @@ public class Transaction {
 
     private Long montant;
 
-    @ManyToOne
+    private Boolean reccuring;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="compte_id")
     private Compte compte;
 

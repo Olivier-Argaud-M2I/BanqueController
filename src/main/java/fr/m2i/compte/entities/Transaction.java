@@ -1,6 +1,8 @@
 package fr.m2i.compte.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,8 +28,9 @@ public class Transaction {
 
     private Boolean reccuring;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="compte_id")
+    @JsonBackReference
     private Compte compte;
 
 

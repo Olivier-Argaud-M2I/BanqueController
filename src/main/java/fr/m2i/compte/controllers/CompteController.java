@@ -35,7 +35,8 @@ public class CompteController {
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public List<Compte> getAll(){
-        return compteService.getAll();
+        List<Compte> comptes = compteService.getAll();
+        return comptes;
     }
 
 

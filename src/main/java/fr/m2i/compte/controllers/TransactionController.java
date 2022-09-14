@@ -35,6 +35,14 @@ public class TransactionController {
         return transactionService.getAll();
     }
 
+    @GetMapping(
+            path = "/compte/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public List<Transaction> getAllByCompte(@PathVariable("id")Long id){
+        return transactionService.getAllByCompte(id);
+    }
+
 
 
     @PostMapping(
@@ -46,6 +54,15 @@ public class TransactionController {
         return transactionService.newTransaction(transaction);
     }
 
+
+    @DeleteMapping(
+            path = "/delete/{id}"
+    )
+    public void deleteTransactionById(@PathVariable("id") Long id){
+
+        transactionService.deleteByID(id);
+    }
+
     @DeleteMapping(
             path = "/delete",
             consumes = MediaType.APPLICATION_JSON_VALUE
@@ -54,6 +71,8 @@ public class TransactionController {
 
         transactionService.delete(transaction);
     }
+
+
 
 }
 

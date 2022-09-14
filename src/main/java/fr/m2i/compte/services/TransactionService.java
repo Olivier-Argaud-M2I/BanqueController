@@ -27,8 +27,17 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
+    public List<Transaction> getAllByCompte(Long id){
+        return transactionRepository.findAllByCompte_Id(id);
+    }
+
     public void delete(Transaction transaction){
         transactionRepository.delete(transaction);
     }
+
+    public void deleteByID(Long id ){
+        transactionRepository.deleteById(id);
+    }
+
 
 }
